@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Vehicle List{% endblock %}
+
+{% block content %}
+<h1>Vehicle List</h1>
+<ul>
+    {% for vehicle in vehicles %}
+        <li>
+            <a href="{% url 'vehicle_detail' vehicle.pk %}">
+                {{ vehicle.brand }} {{ vehicle.model }} ({{ vehicle.year }}) - ${{ vehicle.price }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
